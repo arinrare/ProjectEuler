@@ -1,0 +1,146 @@
+
+html, body {
+    margin: 0;
+    overflow: clip;
+}
+
+.attribution {
+    padding: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.attribution a:link {
+    color: #6788EB;
+
+}
+
+.attribution a:visited {
+    color: yellow;
+
+}
+
+.topbar-parent {
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #141414;
+    position: relative;
+}
+
+.loadingGif {
+    position: absolute;
+    background-color: rgba(100, 100, 100, 0.5);
+    background-image: url('../img/imageLoading.png');
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: auto 100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+}
+
+.topbar {
+    padding: 5px;
+    height: 50px;
+    line-height: 50px;
+    background: white;
+    color: white;
+    border: solid darkgray;
+    border-width: 0 0 2 0;
+    flex: 0 0 auto;
+    background-color: #141414;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 100px);
+    background-color: lightgrey;
+}
+
+.subwindow {
+    overflow-x: clip;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.sidebar {
+    flex: 0 0 auto;
+    width: 200px;
+    border-left: 2px solid #141414;
+    background-color: #333333;
+}
+
+.content {
+    flex: 1 1 auto;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+}
+
+.menuitem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #141414;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+}
+
+.menuitem:hover {
+    color: lightgrey;
+}
+
+.problemTitle {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.problemTitle, .problemQuestion, .problemResult, .problemAnswer, .problemCode, .problemNumber, .runtime {
+    margin: 20px;
+}   
+
+.problemAnswer, .runtime {
+    margin-left: 0px;
+    font-weight: bold;
+}
+
+.problemNumber {
+    text-align: center;
+}
+
+.problemQuestion {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.problemResult {
+    overflow-y: auto;
+}
+
+.codeBox {
+    position: relative;
+}
+
+.codeCopy {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: lightgrey;
+    border-radius: 2px;
+    color:#141414;
+    font-weight: bold;
+    cursor: pointer;
+}
