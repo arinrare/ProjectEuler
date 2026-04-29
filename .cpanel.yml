@@ -1,4 +1,6 @@
 ---
 deployment:
   tasks:
-    - /bin/rsync -av --exclude='.git' --exclude='.cpanel.yml' ./ ../../public_html/projecteuler/
+    - /bin/cp -Rf . ../../public_html/projecteuler/
+    - /bin/rm -rf ../../public_html/projecteuler/.git
+    - /bin/rm -f ../../public_html/projecteuler/.cpanel.yml
