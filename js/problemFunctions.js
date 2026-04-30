@@ -532,7 +532,26 @@ const problemFunctions = {
     },
     problem14: (timeStart) => {
         return new Promise(function(resolve, reject) {
-            let answer = 'NaN';
+            let answer = 0, countMax = 0;
+            for (let x = 1; x < 1000000; x++) {
+                let count = 1; let num = 0;
+                while (num != 1) {
+                    if (count === 1) {
+                        num = x;
+                    }
+                    if (num % 2 === 0) {
+                        num = num / 2;
+                    }
+                    else {
+                        num = 3 * num + 1; 
+                    }
+                    count++;
+                    if (count > countMax) {
+                        countMax = count;
+                        answer = x;
+                    }
+                }
+            }
 
             const timeFinish = performance.now();
             const result =  {
