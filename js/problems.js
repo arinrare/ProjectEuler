@@ -225,4 +225,22 @@ const problems = [
         "completed": true,
         "question": "The following iterative sequence is defined for the set of positive integers:\n\nn -> n / 2 (n is even)\n\nn -> 3n + 1 (n is odd)\n\nUsing the rule above and starting with 13, we generate the following sequence:\n\n13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1\n\nIt can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.\n\nWhich starting number, under one million, produces the longest chain?\n\nNOTE: Once the chain starts the terms are allowed to go above one million."
     },
+    {   
+        "number": 15,
+        "title": "Lattice Paths",
+        "completed": true,
+        "question": "<p>Starting in the top left corner of a 2 x 2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.</p><p style='display: flex; justify-content: center;'><img src='img/problem15.png'></p><p>How many such routes are there through a 20 x 20 grid?</p>"
+    },
+    {   
+        "number": 16,
+        "title": "Power Digit Sum",
+        "completed": true,
+        "question": "2¹⁵ (2^15) = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.\n\nWhat is the sum of the digits of the number 2¹⁰⁰⁰ (2^1000)?"
+    },
+    {   
+        "number": 17,
+        "title": "Number Letter Counts",
+        "completed": true,
+        "question": "If the numbers 1 to 5  are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.\n\nIf all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?\n\nNOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of  \"and\" when writing out numbers is in compliance with British usage."
+    },
 ]

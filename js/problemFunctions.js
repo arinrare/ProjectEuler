@@ -535,23 +535,105 @@ const problemFunctions = {
             let answer = 0, countMax = 0;
             for (let x = 1; x < 1000000; x++) {
                 let count = 1; let num = 0;
+                // While we have not reached the end number.
                 while (num != 1) {
+                    // On the first iteration of the inner loop, set the starting number.
                     if (count === 1) {
                         num = x;
                     }
+                    // If iteration is even, perform the even maths.
                     if (num % 2 === 0) {
                         num = num / 2;
                     }
+                    // If iteration is odd, perfrom the odd maths.
                     else {
                         num = 3 * num + 1; 
                     }
+                    // Count the number of iterations on the way to the final number 1.
                     count++;
+                    // Store the highest number of iterations.
                     if (count > countMax) {
                         countMax = count;
+                        // Return the number in the outer loop that had the higest number of steps.
                         answer = x;
                     }
                 }
             }
+
+            const timeFinish = performance.now();
+            const result =  {
+                'answer': answer,
+                'timeFinish': timeFinish
+            }
+            resolve(result);
+        });
+    },
+    problem15: (timeStart) => {
+        return new Promise(function(resolve, reject) {
+            let answer = 0, destination, paths = 0;
+            const gridArray = [];
+            let arr;
+
+            // This problem made me feel really stupid, and i had to look up the logic solution for it.
+            // I initially tried to start counting each possible path, but quickly realised this was going to be impossible.
+            // I looked up online how to solve a problem like this and found rather than count paths taken,
+            // You need to count number of possible paths from each start edge.
+            // From each edge, there is one possible path to the next, 
+            // and in the bottom right intersection of these - there is the sum of each number of paths to the previous positions so far.
+            // I would never have been able to solve this logic without looking it up.
+            // I wrote the code myself once i knew the logic, but i had to see the logic in a 2 x 2 grid to understand it.
+            // I actually count this one as unsolved, and for future problems where i can't wrap my head around it
+            // I will leave them as unsolved and move on with the next problem.
+
+            // Create a 20 x 20 grid array. Mark the start edges of each dimension with 1
+            for (let x = 0; x < 21; x++) {
+                arr = [];
+                for (let y = 0; y < 21; y++) {
+                    if (x === 0 || y === 0) {
+                        arr.push(1)
+                    }
+                    else {
+                        arr.push(0);
+                    }
+                }
+                gridArray.push(arr);
+            }
+            console.log(gridArray);
+
+            for (let x = 0; x < gridArray.length; x++) {
+                for(let y = 0; y < gridArray[x].length; y++) {
+                    if (gridArray[x][y] === 0) {
+                        gridArray[x][y] = gridArray[x - 1][y] + gridArray [x][y-1]
+                    }
+                }
+            } 
+
+            console.log(gridArray);
+            answer = gridArray[20][20];
+
+            const timeFinish = performance.now();
+            const result =  {
+                'answer': answer,
+                'timeFinish': timeFinish
+            }
+            resolve(result);
+        });
+    },
+    problem16: (timeStart) => {
+        return new Promise(function(resolve, reject) {
+            let answer = 0;
+
+            const timeFinish = performance.now();
+            const result =  {
+                'answer': answer,
+                'timeFinish': timeFinish
+            }
+            resolve(result);
+        });
+    },
+    problem17: (timeStart) => {
+        return new Promise(function(resolve, reject) {
+            let answer = 0;
 
             const timeFinish = performance.now();
             const result =  {
