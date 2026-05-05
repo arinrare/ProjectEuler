@@ -574,16 +574,15 @@ const problemFunctions = {
             const gridArray = [];
             let arr;
 
-            // This problem made me feel really stupid, and i had to look up the logic solution for it.
+            // This problem made me feel really stupid, and i had to research the maths logic behind it.
             // I initially tried to start counting each possible path, but quickly realised this was going to be impossible.
-            // I looked up online how to solve a problem like this and found rather than count paths taken,
+            // I looked up online the theory behind solving a problem like this and found rather than count paths taken,
             // You need to count number of possible paths from each start edge.
             // From each edge, there is one possible path to the next, 
             // and in the bottom right intersection of these - there is the sum of each number of paths to the previous positions so far.
-            // I would never have been able to solve this logic without looking it up.
-            // I wrote the code myself once i knew the logic, but i had to see the logic in a 2 x 2 grid to understand it.
-            // I actually count this one as unsolved, and for future problems where i can't wrap my head around it
-            // I will leave them as unsolved and move on with the next problem.
+            // In this way it is possible to sequentially count the number of paths for the final location.
+            // I would never have been able to solve this logic without knowing the theory.
+            // I wrote the code myself once i knew the maths logic, but i had to see the logic in a 2 x 2 grid to understand it.
 
             // Create a 20 x 20 grid array. Mark the start edges of each dimension with 1
             for (let x = 0; x < 21; x++) {
