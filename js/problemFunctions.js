@@ -574,24 +574,26 @@ const problemFunctions = {
             const gridArray = [];
             let arr;
 
-            // This problem made me feel really stupid, and i had to research the maths logic behind it.
             // I initially tried to start counting each possible path, but quickly realised this was going to be impossible.
             // I looked up online the theory behind solving a problem like this and found rather than count paths taken,
             // You need to count number of possible paths from each start edge.
             // From each edge, there is one possible path to the next, 
             // and in the bottom right intersection of these - there is the sum of each number of paths to the previous positions so far.
             // In this way it is possible to sequentially count the number of paths for the final location.
-            // I would never have been able to solve this logic without knowing the theory.
-            // I wrote the code myself once i knew the maths logic, but i had to see the logic in a 2 x 2 grid to understand it.
+            // This theory is known as Pascal's Triangle, and can be applied to a triangle shape,
+            // or in gridwalking to a square shape.
 
-            // Create a 20 x 20 grid array. Mark the start edges of each dimension with 1
+            // Create a 21 x 21 grid array. Mark the start edges of each dimension with 1.
+            // We need size 21 so we can count the paths at the intersections.
             for (let x = 0; x < 21; x++) {
                 arr = [];
                 for (let y = 0; y < 21; y++) {
                     if (x === 0 || y === 0) {
+                        // There is 1 path at the top and left starting edges.
                         arr.push(1)
                     }
                     else {
+                        // We will calculate all the zeros during the loop traversal.
                         arr.push(0);
                     }
                 }
@@ -602,12 +604,16 @@ const problemFunctions = {
             for (let x = 0; x < gridArray.length; x++) {
                 for(let y = 0; y < gridArray[x].length; y++) {
                     if (gridArray[x][y] === 0) {
+                        // Sum the preceeding two paths from the left and the top to get number of paths for this location.
+                        // Eg. in position bottom right in a 1 x 1 grid, there is 1 path from the top, and 1 path from left, making 2 paths.
+                        // This formula can be applied to a larger grid.
                         gridArray[x][y] = gridArray[x - 1][y] + gridArray [x][y-1]
                     }
                 }
             } 
 
             console.log(gridArray);
+            // The total number of paths is the lower right most value.
             answer = gridArray[20][20];
 
             const timeFinish = performance.now();
