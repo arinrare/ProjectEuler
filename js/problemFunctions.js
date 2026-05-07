@@ -570,9 +570,8 @@ const problemFunctions = {
     },
     problem15: (timeStart) => {
         return new Promise(function(resolve, reject) {
-            let answer = 0, destination, paths = 0;
             const gridArray = [];
-            let arr;
+            let answer = 0, destination, paths = 0, arr;
 
             // I initially tried to start counting each possible path, but quickly realised this was going to be impossible.
             // I looked up online the theory behind solving a problem like this and found rather than count paths taken,
@@ -626,7 +625,15 @@ const problemFunctions = {
     },
     problem16: (timeStart) => {
         return new Promise(function(resolve, reject) {
-            let answer = 0;
+            // This problem is somewhat easier to solve now since the introduction of the BigInt data type.
+            let answer = 0, power = BigInt(Math.pow(2, 1000));
+            // Array.from is a modern way to 'split' an array type like a string.
+            const powerArr = Array.from(power.toString());
+            
+            // Convert each string digit back to an integer for calculation.
+            powerArr.forEach((integer) => {
+                answer += parseInt(integer);
+            });
 
             const timeFinish = performance.now();
             const result =  {
